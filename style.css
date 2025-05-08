@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin: 30px auto;
+}
+.card {
+    background-color: #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+
+    /* Animation */
+    transform: rotateY(0deg);
+    transition: all 0.5s;
+}
+
+.card .card-content {
+    opacity : 0;
+    transition: all 0.3s;
+}
+
+
+/* on veut dire ici que mon élément a à la fois 
+la classe .card et la classe .flip  et UNIQUEMENT dans ce cas là, 
+card content pourra etre en opacity 1 , et seulement card-content!*/
+.card.flip .card-content{ 
+    max-width: 100%;
+    opacity: 1
+}
+
+.card.matched {
+    border: solid 4px rgb(0, 255, 0);
+
+    /* box-sizing: evite que la bordure prenne plus de place 
+    (pas calculé) => cela va influencer la taille de l'image quand meme , 
+    donc on met le max-width à card-content! */
+    box-sizing: border-box;
+    cursor: default;
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+}
+
+
+
